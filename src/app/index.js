@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ryanair', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
         url: '/',
@@ -10,5 +10,6 @@ angular.module('ryanair', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'n
       });
 
     $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode(true);
   })
 ;
