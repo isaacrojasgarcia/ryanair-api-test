@@ -1,41 +1,52 @@
 .container
-    //- h1 RyanAir test application
-    hr/
-    div.row 
-        div.col-md-4
-            div.form-group
-                label.control-label(for="departure-airport") Origin
-                angucomplete-alt(id="departure-airport"
-                      placeholder="Search countries"
-                      pause="100"
-                      selected-object="departure"
-                      local-data="airports"
-                      search-fields="name"
-                      title-field="name"
-                      minlength="1"
-                      input-class="form-control form-control-small")/
-        
-        div.col-md-4
-            div.form-group
-                label.control-label(for="destination-airport") Destination
-                angucomplete-alt(id="destination-airport"
-                      placeholder="Search countries"
-                      pause="100"
-                      selected-object="destination"
-                      local-data="airports"
-                      search-fields="name"
-                      title-field="name"
-                      minlength="1"
-                      input-class="form-control form-control-small")/
-                    
-        div.col-md-4
-            div.form-group
-                label.control-label(for="destination-airport") Destination
-                input(type="text" pick-a-date="date" placeholder="Select Date") {{ departureDate }}
-                    
-        div.col-md-4
+    h1 RyanAir test application
+    
+    form(submit="onSubmit")
+        .row 
+            .col-md-4
+                .form-group
+                    label.control-label(for="airport-from") From
+                    angucomplete-alt(id="airport-from"
+                          placeholder="Search airport"
+                          pause="100"
+                          selected-object="aiport.from"
+                          local-data="airportsData"
+                          search-fields="name"
+                          title-field="name"
+                          minlength="1"
+                          input-class="form-control form-control-small")/
             
+            .col-md-4
+                .form-group
+                    label.control-label(for="airport-to") To
+                    angucomplete-alt(id="airport-to"
+                          placeholder="Search airport"
+                          pause="100"
+                          selected-object="aiport.to"
+                          local-data="airportsData"
+                          search-fields="name"
+                          title-field="name"
+                          minlength="1"
+                          input-class="form-control form-control-small")/
+        
+        .row                 
+            .col-md-4
+                .form-group
+                    label.control-label(for="depart-date") Depart
+                    input.form-control#depart-date(type="text" pick-a-date="date" placeholder="Select Date" pick-a-date-options="{ format: 'mm/dd/yyyy', min: dates.today, onSet: updateMinimumReturn }" ng-model="dates.depart")
+            
+            .col-md-4
+                .form-group
+                    label.control-label(for="return-date") Return
+                    input.form-control#return-date(type="text" pick-a-date="date" placeholder="Select Date" pick-a-date-options="{ format: 'mm/dd/yyyy', min: dates.today }" ng-model="dates.return") 
+                    
+        .row 
+            .col-md-4
+                input.btn.btn-success(type="submit" value="Search")/
+            
+    
     .footer
+        hr/        
         p
             | With ♥ from 
             a(href="https://github.com/trepafi") Lubert
