@@ -1,6 +1,40 @@
 .container
-    h1 RyanAir test application
+    //- h1 RyanAir test application
     hr/
+    div.row 
+        div.col-md-4
+            div.form-group
+                label.control-label(for="departure-airport") Origin
+                angucomplete-alt(id="departure-airport"
+                      placeholder="Search countries"
+                      pause="100"
+                      selected-object="departure"
+                      local-data="airports"
+                      search-fields="name"
+                      title-field="name"
+                      minlength="1"
+                      input-class="form-control form-control-small")/
+        
+        div.col-md-4
+            div.form-group
+                label.control-label(for="destination-airport") Destination
+                angucomplete-alt(id="destination-airport"
+                      placeholder="Search countries"
+                      pause="100"
+                      selected-object="destination"
+                      local-data="airports"
+                      search-fields="name"
+                      title-field="name"
+                      minlength="1"
+                      input-class="form-control form-control-small")/
+                    
+        div.col-md-4
+            div.form-group
+                label.control-label(for="destination-airport") Destination
+                input(type="text" pick-a-date="date" placeholder="Select Date") {{ departureDate }}
+                    
+        div.col-md-4
+            
     .footer
         p
             | With ♥ from 

@@ -1,27 +1,26 @@
 'use strict';
 angular.module('ryanair').factory('connectionSvc', ConnectionFactory);
 
-ConnectionFactory.$inject = ['$resource', '$q']
-function ConnectionFactory($resource, $q) {
+ConnectionFactory.$inject = ['$http', '$q']
+function ConnectionFactory($http, $q) {
     return {
         getAirports: getAirports
     };
 
     function makeCall(method) {
-        var baseUrl = "https://ryanair-test.herokuapp.com/api/",
+        var baseUrl = "http://localhost:9002/api/",
             deferred = $q.defer(),
             url = baseUrl + method;
 
-        var Data = $resource(url)
-        Data.get(url)
-            .$promise.then(function(response) {
-                console.log(response);
+        $http.get(url)
+            .success(function(response) {
+                // console.log(response);
                 deferred.resolve(response);
+            })
+            .error(function(error) {
+                console.log(error);
+                deferred.reject(error);
             });
-            // .error(function(error) {
-            //     console.log(error);
-            //     deferred.reject(error);
-            // });
 
         return deferred.promise;
     }

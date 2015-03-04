@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ryanair', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
+angular.module('ryanair', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'angucomplete-alt', 'angular-datepicker'])
     .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
         $stateProvider
         .state('home', {
