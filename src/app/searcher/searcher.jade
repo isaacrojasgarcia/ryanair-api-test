@@ -1,5 +1,5 @@
 .container
-    h1 RyanAir test application
+    h1 Searcher
     
     form(submit="onSubmit")
         .row 
@@ -51,8 +51,4 @@
                 td {{ item.outbound.airportTo.name }}
                 td {{ item.outbound.price.value }} {{ item.outbound.price.currencySymbol }}
     
-    .footer
-        hr/        
-        p
-            | With ♥ from 
-            a(href="https://github.com/trepafi") Lubert
+    

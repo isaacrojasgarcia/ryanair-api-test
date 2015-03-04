@@ -1,5 +1,5 @@
 'use strict';
-angular.module('ryanair').directive('searcher', SearcherDirective);
+angular.module('ryanair').directive('raSearcher', SearcherDirective);
 
 function SearcherDirective() {
     return {
