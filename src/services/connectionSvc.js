@@ -4,7 +4,8 @@ angular.module('ryanair').factory('connectionSvc', ConnectionFactory);
 ConnectionFactory.$inject = ['$http', '$q']
 function ConnectionFactory($http, $q) {
     return {
-        getAirports: getAirports
+        getAirports: getAirports,
+        getCheapFlights: getCheapFlights
     };
 
     function makeCall(method) {
@@ -27,5 +28,10 @@ function ConnectionFactory($http, $q) {
 
     function getAirports() {
         return makeCall('airports');
+    }
+
+    function getCheapFlights(data) {
+        var url = 'cheap-flights/' + data.from + '/' + data.to + '/' + data.start + '/' + data.end + '/' + data.maxPrice
+        return makeCall(url);
     }
 }

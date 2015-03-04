@@ -9,7 +9,7 @@
                     angucomplete-alt(id="airport-from"
                           placeholder="Search airport"
                           pause="100"
-                          selected-object="aiport.from"
+                          selected-object="destinations.from"
                           local-data="airportsData"
                           search-fields="name"
                           title-field="name"
@@ -22,7 +22,7 @@
                     angucomplete-alt(id="airport-to"
                           placeholder="Search airport"
                           pause="100"
-                          selected-object="aiport.to"
+                          selected-object="destinations.to"
                           local-data="airportsData"
                           search-fields="name"
                           title-field="name"
@@ -40,10 +40,16 @@
                     label.control-label(for="return-date") Return
                     input.form-control#return-date(type="text" pick-a-date="date" placeholder="Select Date" pick-a-date-options="{ format: 'mm/dd/yyyy', min: dates.today }" ng-model="dates.return") 
                     
-        .row 
             .col-md-4
-                input.btn.btn-success(type="submit" value="Search")/
+                input.btn.btn-success.btn-lg.btn-block(type="submit" value="Search")/
             
+    .row(ng-if="results.flights.length > 0")
+        h2 {{ results.count }} results 
+        table.table.table-striped
+            tr(ng-repeat="item in results.flights")
+                td {{ item.outbound.airportFrom.name }}
+                td {{ item.outbound.airportTo.name }}
+                td {{ item.outbound.price.value }} {{ item.outbound.price.currencySymbol }}
     
     .footer
         hr/        

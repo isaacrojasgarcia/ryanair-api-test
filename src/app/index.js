@@ -5,8 +5,7 @@ angular.module('ryanair', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'n
         $stateProvider
         .state('home', {
             url: '/',
-            templateUrl: 'app/main/main.html',
-            controller: 'MainCtrl'
+            template: '<searcher></seacher>'
         });
 
         $urlRouterProvider.otherwise('/');
