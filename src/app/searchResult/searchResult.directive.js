@@ -8,14 +8,17 @@ function SearchResultDirective() {
     }
 }
 
-searchResultCtrl.inject = ['$scope', 'connectionSvc', 'events'];
-function searchResultCtrl($scope, connectionSvc, events) {
+searchResultCtrl.inject = ['$scope', '$filter', 'connectionSvc', 'events'];
+function searchResultCtrl($scope, $filter, connectionSvc, events) {
+    var orderBy = $filter('orderBy');
+    var deregister = [];
+
     $scope.resuts = [];
 
-
-    var deregister = [];
     deregister.push(events.$on(events.searcher.GOT_RESULTS, function(event, response) {
         // console.log('listening on search result', response);
-        $scope.results = response;
+        $scope.results = _.sortBy(response.flights, 'outbound.price.value');
+        console.log('listening on search result', $scope.results);
+        $scope.qty = response.count;
     }));
 }
