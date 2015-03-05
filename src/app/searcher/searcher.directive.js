@@ -13,8 +13,8 @@ function searcherDirectiveLink(scope, element, attrs) {
     element.find('form').on('submit', scope.onSubmit);
 }
 
-searchDirectiveCtrl.inject = ['$scope', 'connectionSvc'];
-function searchDirectiveCtrl($scope, connectionSvc) {
+searchDirectiveCtrl.inject = ['$scope', 'connectionSvc', 'events'];
+function searchDirectiveCtrl($scope, connectionSvc, events) {
     $scope.airportsData = [];
     $scope.results = {};
 
@@ -44,7 +44,9 @@ function searchDirectiveCtrl($scope, connectionSvc) {
         };
 
         connectionSvc.getCheapFlights(data).then(function(response) {
-            $scope.results = response;
+            // $scope.results = response;
+            console.log(response);
+            events.$emit(events.searcher.GOT_RESULTS, response);
         });
     };
 

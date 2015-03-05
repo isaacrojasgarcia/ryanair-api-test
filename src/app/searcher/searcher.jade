@@ -42,13 +42,13 @@
                     
             .col-md-4
                 input.btn.btn-success.btn-lg.btn-block(type="submit" value="Search")/
-            
-    .row(ng-if="results.flights.length > 0")
-        h2 {{ results.count }} results 
-        table.table.table-striped
-            tr(ng-repeat="item in results.flights")
-                td {{ item.outbound.airportFrom.name }}
-                td {{ item.outbound.airportTo.name }}
-                td {{ item.outbound.price.value }} {{ item.outbound.price.currencySymbol }}
+    //-         
+    //- .row(ng-if="results.flights.length > 0")
+    //-     h2 {{ results.count }} results 
+    //-     table.table.table-striped
+    //-         tr(ng-repeat="item in results.flights")
+    //-             td {{ item.outbound.airportFrom.name }}
+    //-             td {{ item.outbound.airportTo.name }}
+    //-             td {{ item.outbound.price.value }} {{ item.outbound.price.currencySymbol }}
     
     
