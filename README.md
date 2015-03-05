@@ -28,11 +28,11 @@ This application test uses:
 
 ```
 $ node proxy/server.js
-$ npm install
+$ npm install && bower install
 $ gulp serve
 ```
 
-The result is a :
+These steps will execute:
 * Small proxy server at 9002 port
 * Web server at http://localhost:3000
 
